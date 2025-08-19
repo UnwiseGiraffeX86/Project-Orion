@@ -73,7 +73,7 @@ I am 19 years old and just starting university as an **Electronics Engineering**
 ---
 
 ## 🖼 Block Diagram
-![Block Diagram](docs/block-diagram/orion_block_diagram.png)
+![Block Diagram](docs/block-diagram/orion_block_diagram.jpg)
 
 ---
 
