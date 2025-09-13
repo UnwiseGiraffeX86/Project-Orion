@@ -1,74 +1,73 @@
-# Project Orion – RK3566 Development Board
+# Project Orion – RK3588S Development Board
 
-A powerful, compact, and user-friendly development board built from scratch around the **Rockchip RK3566** SoC. Designed for both **hobbyists** and **professionals**, Orion balances performance, connectivity, and expandability while keeping costs accessible. The board runs **Linux (Armbian/Ubuntu/Debian)** and supports a wide ecosystem of peripherals.
+A powerful, compact, and open-source development board built from scratch around the **Rockchip RK3588S** SoC. Designed for **makers, students, and professionals**, Orion balances high performance, expandability, and modern connectivity in a hand-designed SBC form factor. The board runs **Linux (Armbian/Ubuntu/Debian)** and supports advanced **AI, multimedia, and IoT applications**.
 
 ---
 
 **About the creator**  
-I am 19 years old and just starting university as an **Electronics Engineering** student. With some prior experience in hobby electronics and PCB design, I’m using Project Orion to dive deep into **high-speed interfaces (DDR, PCIe, USB 3.0, MIPI)**, **6-layer PCB routing**, **USB-C Power Delivery**, and **Linux bring-up**. This project is both a functional SBC and a learning journey.
+I am 19 years old and just starting university as an **Electronics Engineering** student. With prior experience in hobby electronics and PCB design, I’m using Project Orion to dive into **high-speed interfaces (LPDDR5, PCIe Gen3, USB 3.1, HDMI 2.1, MIPI)**, **power sequencing with PMICs**, and **Linux bring-up on a modern ARM SoC**. This project is both a functional SBC and a deep learning journey into advanced hardware design.
 
 ---
 
 ## ✨ Key Features
-- **SoC:** Rockchip RK3566 (Quad Cortex-A55, Mali-G52 GPU, VPU, NPU-lite)
-- **Memory:** Up to 8 GB LPDDR4 RAM
+- **SoC:** Rockchip RK3588S (Octa-core: 4× Cortex-A76 + 4× Cortex-A55, Mali-G610 MP4 GPU, 6 TOPS NPU)
+- **Memory:** Up to 16 GB LPDDR5 RAM (soldered BGA)
 - **Storage:**
-  - Onboard eMMC (up to 64 GB)
+  - Onboard eMMC (up to 128 GB)
   - microSD card slot (boot or expansion)
-  - Optional NVMe SSD via M.2 (2242, PCIe 2.0 x1)
+  - NVMe SSD via M.2 (2242/2280, PCIe 3.0 x2)
 - **Connectivity:**
-  - Gigabit Ethernet (RJ45, optional PoE-PD)
-  - Wi-Fi 5/6 via M.2 E-key
-  - 4G/5G modem support via M.2 B-key (Quectel EG25-G, RM502Q, etc.)
-  - Integrated GNSS/GPS (through cellular module)
+  - 2.5G Ethernet (RJ45, optional PoE-PD)
+  - Wi-Fi 6/6E + Bluetooth 5.2 via M.2 E-key
+  - 4G/5G modem support via M.2 B-key (Quectel RM502Q, EG25-G, etc.)
+  - GNSS/GPS supported through cellular modules
 - **I/O:**
   - 40-pin GPIO header (Pi-compatible pinout)
   - Interfaces: SPI, I²C, UART, PWM, ADC, GPIO
-  - CAN-FD (MCP2517FD + TCAN1042)
+  - Native **CAN-FD** (RK3588S integrated support)
 - **Display & Camera:**
-  - 1× MIPI-DSI (up to 4 lanes)
+  - 1× HDMI 2.1 (up to 8K@60fps output)
+  - 1× MIPI-DSI (4 lanes, high-res LCD support)
   - 2× MIPI-CSI (camera input)
-  - Optional HDMI 2.0 output
 - **USB & Expansion:**
   - USB-C with Power Delivery (data + power)
-  - USB 3.0 Host
-  - USB 2.0 OTG
+  - 2× USB 3.1 Gen1 Host
+  - 2× USB 2.0 Host/OTG
   - Dual M.2 slots (B-key for cellular, E-key for Wi-Fi/BT, M-key for NVMe SSD)
 - **Power:**
   - USB-C PD input (STUSB4500 controller)
+  - RK806 PMIC for SoC sequencing + regulators
   - Single-cell LiPo battery support (BQ25895 charger + power-path)
   - Fuel gauge (MAX17055)
-  - Safe power sequencing for SoC + peripherals
 - **Form Factor:**
-  - Compact ~85 × 60 mm PCB
-  - 6-layer design with impedance-controlled high-speed routing
+  - Compact ~100 × 80 mm PCB
+  - 6–8 layer HDI design with impedance-controlled routing
+  - Active cooling support (fan or heatsink)
 
 ---
 
 ## 🛠 Project Goals
-- Create a **Linux-capable SBC** with modern connectivity in a compact size.
-- Offer **plug-and-play usability** for hobbyists while providing **pro-grade interfaces** for industrial/prototyping use.
-- Keep **costs as low as possible** without sacrificing usability.
-- Provide **full open hardware documentation** (schematics, PCB files, BOM, reference images).
-- Showcase a **learning journey** in:
-  - High-speed PCB design (DDR, PCIe, USB 3.0, MIPI)
-  - Power management and USB-C PD integration
-  - Linux bring-up (U-Boot, kernel config, device tree)
-  - Modular design for multiple use cases (IoT, robotics, edge AI, prototyping)
+- Create a **next-generation SBC** with the RK3588S SoC for AI, robotics, edge computing, and embedded Linux development.
+- Provide a **learning-first approach** to high-speed BGA/DDR design, PMIC integration, and Linux bring-up.
+- Deliver **open hardware documentation** (schematics, PCB files, BOM, block diagrams).
+- Keep board size within **<10 × 10 cm** while balancing complexity and manufacturability.
+- Showcase a **journey in advanced PCB design**, covering:
+  - LPDDR5 high-speed layout and length-matching
+  - PCIe/USB 3.1/HDMI 2.1 differential pair routing
+  - Power sequencing with RK806 PMIC
+  - Thermal design (copper pours, heatsink mounting)
+  - Bring-up of U-Boot, kernel, and device tree
 
 ---
 
 ## 📂 Repository Structure
 
-
-/docs            → Block diagrams, design notes, datasheets
-/hardware        → KiCad schematics, PCB layout, Gerbers
-/firmware        → Bootloader (U-Boot), Device Tree, kernel patches
-/software        → Rootfs setup, build scripts, test utilities
-/cad             → Mechanical drawings, 3D STEP models
-/production      → BOM, assembly files, test plans
-
-
+/docs → Block diagrams, design notes, datasheets
+/hardware → KiCad schematics, PCB layout, Gerbers
+/firmware → Bootloader (U-Boot), Device Tree, kernel patches
+/software → Rootfs setup, build scripts, test utilities
+/cad → Mechanical drawings, 3D STEP models
+/production → BOM, assembly files, test
 
 ---
 
@@ -79,39 +78,39 @@ I am 19 years old and just starting university as an **Electronics Engineering**
 
 ## 🚀 Getting Started (Future)
 1. Flash the provided Armbian/Ubuntu image to microSD or eMMC.
-2. Connect display (HDMI/MIPI), keyboard, and power via USB-C.
+2. Connect display (HDMI 2.1 / MIPI), keyboard, and power via USB-C.
 3. Boot into Linux and expand storage if needed.
-4. Optional: Insert M.2 Wi-Fi or cellular module and configure via `NetworkManager`.
+4. Optional: Insert Wi-Fi/BT or cellular M.2 module and configure networking.
 
 ---
 
 ## 📡 Roadmap
 - [ ] Finalize block diagram & power tree
-- [ ] Complete schematic capture in KiCad
-- [ ] DDR routing + 6-layer PCB layout
-- [ ] Prototype manufacturing + bring-up
+- [ ] Schematic capture in KiCad (SoC + PMIC + DDR + I/O)
+- [ ] DDR5 routing & 6–8 layer PCB layout
+- [ ] Prototype manufacturing (JLCPCB HDI) + bring-up
 - [ ] Linux boot (U-Boot + Armbian)
-- [ ] Validate peripherals (Ethernet, Wi-Fi, LTE/5G, GPIO, CAN, CSI/DSI)
-- [ ] Release open-source hardware files
+- [ ] Validate peripherals (Ethernet, PCIe, USB 3.1, HDMI 2.1, CSI/DSI, CAN-FD)
+- [ ] Release open-source hardware files and documentation
 
 ---
 
 ## ⚖ License
-- Hardware: **CERN OHL-S** (Open Hardware License, Strongly Reciprocal)
+- Hardware: **CERN OHL-S** (Open Hardware License, Strongly Reciprocal)  
 - Software: **GPLv3** / **Apache 2.0** depending on component
 
 ---
 
 ## 🤝 Contributing
 Contributions are welcome!
-- Suggest features
+- Suggest new features
 - Help test Linux builds
-- Improve schematics or PCB layout
-- Share use cases and demos
+- Share improvements for schematics/PCB layout
+- Submit demos or software support patches
 
 ---
 
 ## 📢 Status
-🚧 **Work in Progress** – This repo documents the journey of designing and building a complete SBC from scratch.
+🚧 **Work in Progress** – This repo documents the journey of designing and building a complete SBC from scratch around the RK3588S.
 
 Follow along and contribute as we bring **Project Orion** to life ✨
